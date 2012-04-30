@@ -48,24 +48,24 @@
     	);
     	
     	// MENUS    	
-		$('#flat').menu({ 
+		$('#flat').fgMenu({ 
 			content: $('#flat').next().html(), // grab content from this page
 			showSpeed: 400 
 		});
 		
-		$('#hierarchy').menu({
+		$('#hierarchy').fgMenu({
 			content: $('#hierarchy').next().html(),
 			crumbDefaultText: ' '
 		});
 		
-		$('#hierarchybreadcrumb').menu({
+		$('#hierarchybreadcrumb').fgMenu({
 			content: $('#hierarchybreadcrumb').next().html(),
 			backLink: false
 		});
 		
 		// or from an external source
 		$.get('menuContent.html', function(data){ // grab content from another page
-			$('#flyout').menu({ content: data, flyOut: true });
+			$('#flyout').fgMenu({ content: data, flyOut: true });
 		});
     });
     </script>
