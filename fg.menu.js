@@ -67,7 +67,11 @@ function Menu(caller, options){
 		flyOutOnState: 'ui-state-default',
 		nextMenuLink: 'ui-icon-triangle-1-e', // class to style the link (specifically, a span within the link) used in the multi-level menu to show the next level
 		topLinkText: 'All',
-		nextCrumbLink: 'ui-icon-carat-1-e'	
+		nextCrumbLink: 'ui-icon-carat-1-e',
+		select: function (item) {
+			$('#menuSelection').text($(item).text());
+			location.href = $(item).attr('href');
+		}
 	}, options);
 	
 	var killAllMenus = function(){
@@ -243,9 +247,7 @@ function Menu(caller, options){
 	
 	this.chooseItem = function(item){
 		menu.kill();
-		// edit this for your own custom function/callback:
-		$('#menuSelection').text($(item).text());	
-		location.href = $(item).attr('href');
+		options.select(item);
 	};
 };
 
