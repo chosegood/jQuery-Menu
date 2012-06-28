@@ -42,6 +42,7 @@ function Menu(caller, options){
 		content: null,
 		width: 180, // width of menu container, must be set or passed in to calculate widths of child menus
 		maxHeight: 180, // max height of menu (if a drilldown: height does not include breadcrumb)
+		$maxHeightElement: null,
 		positionOpts: {
 			posX: 'left', 
 			posY: 'bottom',
@@ -214,6 +215,12 @@ function Menu(caller, options){
 				menu.chooseItem(this);
 				return false;
 			});
+			
+			if (options.$maxHeightElement && (container.height() > options.$maxHeightElement.height())) {
+			    container.addClass('fg-menu-scroll') ;
+			    container.css({ height: options.$maxHeightElement.height() * 0.9});
+			}
+
 		};	
 		
 		if (options.linkHover) {
